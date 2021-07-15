@@ -1,0 +1,23 @@
+<script>
+    import PrismicDom from 'prismic-dom'
+    import calendarIcon from '/static/images/calendar-3.png'
+    export let slice
+</script>
+
+<div class="bg-yellow-light rounded-xl p-2 flex flex-col md:flex-row md:space-x-5">
+    <a class="md:w-60 h-32 md:h-full lg:shadow-lg" href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}">
+        <img class="rounded-xl w-full h-full object-cover filter hover:brightness-50 transition duration-500 cursor-pointer" src={slice.articles_to_link.data.image_principale.url} alt={slice.articles_to_link.data.image_principale.alt}>
+    </a>
+    <div class="flex flex-col pt-4">
+        <p class="text-bleu-dark text-sm uppercase font-semibold tracking-wide pb-4">#{slice.articles_to_link.data.categorie}</p>
+        <h3 class="font-bold text-gray-dark text-xl">{PrismicDom.RichText.asText(slice.articles_to_link.data.titre)}</h3>
+        {#if slice.articles_to_link.data.date_debut !== undefined}
+        <div class="flex pt-2 pb-5 items-center space-x-4">
+            <img class="w-4 h-4" src={calendarIcon} alt="icone calendrier">
+            <p class="text-gray-600 text-sm">Du {slice.articles_to_link.data.date_debut} au {slice.articles_to_link.data.date_fin}</p>
+        </div>
+        {/if}
+        <div class="font-light">{@html PrismicDom.RichText.asHtml(slice.articles_to_link.data.extrait)}</div>
+        <a sveltekit:prefetch href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}" class="inline-block mt-6 bg-gray-dark hover:bg-gray-600 text-gray-100 px-6 py-2 rounded-full self-start">En savoir plus</a>
+    </div>
+</div>
