@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ fetch }) {
-		const { activites } = await fetch('/activites/activites.json').then(res => res.json())
+		const { activites } = await fetch('/api/activites').then(res => res.json())
         
         return {
             props: {

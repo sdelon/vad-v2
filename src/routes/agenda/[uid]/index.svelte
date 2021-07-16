@@ -1,7 +1,7 @@
 <script context="module">
     export async function load({fetch, page}) {
         let parentPage = page.path.split('/')[1]
-        const { event,filteredEvents } = await fetch(`/${parentPage}/${page.params.uid}.json`).then(res => res.json())
+        const { event,filteredEvents } = await fetch(`/api/${parentPage}/${page.params.uid}`).then(res => res.json())
 
         return {
             props: {

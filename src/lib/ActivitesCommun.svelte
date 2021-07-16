@@ -1,8 +1,6 @@
 <script>
   import PrismicDom from 'prismic-dom'
   export let body
-
-  $: console.log(body)
 </script>
 
 <section class="pb-20">

@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ fetch }) {
-		const { ateliers, events } = await fetch('/ateliers/ateliers.json').then(res => res.json())
+		const { ateliers, events } = await fetch('/api/ateliers').then(res => res.json())
 
 		return {
 			props: {
@@ -13,8 +13,8 @@
 
 <script>
 	import { setContext } from 'svelte'
-	import tagsStore from '../../utils/tagsStore'
-	import { getTags } from '../../utils/helpers'
+	import tagsStore from '../utils/tagsStore'
+	import { getTags } from '../utils/helpers'
 	import PageEvents from '$lib/PageEvents.svelte'
 	import SEOHead from '$lib/SEOHead.svelte'
 	

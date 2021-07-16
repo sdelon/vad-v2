@@ -1,6 +1,6 @@
-import Client from '../utils/client'
+import Client from '../../utils/client'
 import Prismic from '@prismicio/client'
-import { accueilQuery } from '../utils/graphQueries'
+import { accueilQuery } from '../../utils/graphQueries'
 
 export async function get() {
     const accueil = await Client.query(

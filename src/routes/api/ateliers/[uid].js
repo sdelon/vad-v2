@@ -1,4 +1,4 @@
-import Client from '../../utils/client'
+import Client from '../../../utils/client'
 import Prismic from '@prismicio/client'
 
 export async function get({ params }) {
