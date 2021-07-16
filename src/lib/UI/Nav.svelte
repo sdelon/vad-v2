@@ -15,7 +15,7 @@
 <nav>
     <ul class="lg:max-w-screen-lg mx-auto flex {direction} list-reset text-sm md:space-x-2 lg:space-x-16">
         <li class="mb-4 md:mb-0">
-            <a sveltekit:prefetch on:click={() => dispatch('clickMobileItem')} class="uppercase {color} hover:text-gray-dark hover:border-b-2 hover:border-bleu-primaire hover:border-solid transition-colors duration-300" href="/" class:active={$page.path === '/'}>Accueil</a>
+            <a sveltekit:prefetch on:click={() => dispatch('clickMobileItem')} class="uppercase {color} hover:text-gray-dark hover:border-b-2 hover:border-solid transition-colors duration-300" href="/" class:active={$page.path === '/'}>Accueil</a>
         </li>
         <li class="mb-4 md:mb-0">
             <a sveltekit:prefetch on:click={() => dispatch('clickMobileItem')} class="uppercase {color} hover:text-gray-dark hover:border-b-2 hover:border-bleu-primaire hover:border-solid transition-colors duration-300" href="/projet" class:active={$page.path === '/projet'}>Le projet</a>

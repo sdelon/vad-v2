@@ -4,11 +4,11 @@
     export let logo, altLogo
 </script>
 
-<header id="header" class="bg-gray-bg md:pb-16 relative">
+<header id="header" class="bg-gray-bg md:pb-12 relative">
     <div class="flex flex-col justify-center items-center max-w-screen-lg xl:max-w-screen-xl mx-auto md:px-6 md:py-3 relative z-20">
         <div class="flex items-center mb-4">
             <a href="/">
-                <img width="117" height="150" class="w-24 h-24 lg:w-24 lg:h-auto" src={logo} alt={altLogo}>
+                <img width="117" height="150" class="w-20 h-20 lg:w-20 lg:h-auto" src={logo} alt={altLogo}>
             </a>
         </div>
         <div class="hidden md:block w-full">

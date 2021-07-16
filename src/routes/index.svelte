@@ -28,19 +28,19 @@
 	image=""
 	alt="" />
 
-<section class="pb-20 md:pb-24 relative">
-	<div class="bg-yellow bg-opacity-50 w-full h-full absolute inset-0"></div>
-	<div class="container flex justify-between items-end relative">
+<section class="pb-20 relative">
+	<div class="bg-tw-yellow-200 bg-opacity-50 w-full h-full absolute inset-0"></div>
+	<div class="container flex justify-between items-stretch relative">
 		<div>
-			<h1 class="text-6xl sm:text-7xl lg:text-8xl tracking-tight font-black text-gray-dark pb-6">{PrismicDom.RichText.asText(accueil.data.titre)}</h1>
-			<h2 class="text-2xl sm:text-3xl font-medium leading-loose text-gray-700 pb-10">{@html PrismicDom.RichText.asHtml(accueil.data.intro)}</h2>
+			<h1 class="text-6xl sm:text-7xl tracking-tight font-black text-gray-dark pb-6">{PrismicDom.RichText.asText(accueil.data.titre)}</h1>
+			<h2 class="text-2xl font-medium text-gray-700 pb-10">{@html PrismicDom.RichText.asHtml(accueil.data.intro)}</h2>
 			<a href="/" class="transition duration-500 bg-gray-dark text-yellow font-bold px-8 py-3 rounded-lg uppercase tracking-wide">{accueil.data.bouton_text}</a>
 		</div>
-		<img width="117" height="150" class="hidden md:block w-[450px] h-[450px] object-fit" src={logoVAD} alt="logo du Village Aux Dames">
+		<img width="117" height="150" class="hidden md:block w-[400px] h-[400px] object-fit" src={logoVAD} alt="logo du Village Aux Dames">
 	</div>
 </section>
 {#each accueil.data.body as slice}
-{#if slice.slice_type ===  'concept_clef'}
+{#if slice.slice_type === 'concept_clef'}
 	<section class="container pb-20 md:pb-24 relative">
 		<div>
 			<HeaderSection

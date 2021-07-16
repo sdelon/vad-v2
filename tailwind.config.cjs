@@ -12,6 +12,7 @@ module.exports = {
 			gray: colors.warmGray,
 			teal: colors.teal,
 			purple: colors.purple,
+			'tw-yellow': colors.yellow,
 			'bleu-dark': '#0E777E',
 			'bleu-primaire': '#09C7D4',
 			'bleu-light': '#9FEAEF',

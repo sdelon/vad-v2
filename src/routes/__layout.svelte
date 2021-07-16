@@ -17,7 +17,7 @@
 <Header
 logo={logoVAD}
 altLogo="Village Aux Dames" />
-<main class="bg-gray-bg min-h-screen relative z-10">
+<main class="bg-gray-bg relative z-10">
 	<slot />
 </main>
 <Footer 

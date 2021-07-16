@@ -12,11 +12,11 @@
         <div class="mb-12 lg:mb-0 w-full lg:w-1/2 px-4">
           <div class="max-w-md">
             <h2 class="mb-3 text-4xl font-bold font-heading">{PrismicDom.RichText.asText(slice.primary.titre)}</h2>
-            <p class="mb-6 max-w-sm text-gray-600 prose">{@html PrismicDom.RichText.asHtml(slice.primary.intro)}</p>
+            <p class="mb-8 max-w-sm text-gray-600 prose">{@html PrismicDom.RichText.asHtml(slice.primary.intro)}</p>
             <ul>
               {#each slice.items as item}
-              <li class="mb-2 flex items-center space-x-2">
-                <svg class="flex-none w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <li class="mb-2 flex items-center space-x-2 text-gray-700">
+                <svg class="flex-none w-5 h-5 text-bleu-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
                 <span>{@html PrismicDom.RichText.asHtml(item.argument)}</span>
