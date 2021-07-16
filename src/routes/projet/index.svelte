@@ -20,6 +20,12 @@
     $: ({ body } = projet.data)
 </script>
 
+<style>
+    .concept-container {
+        @apply pb-8 pr-8;
+    }
+</style>
+
 <SEOHead
 	title="Projet Associatif | Village Aux Dames"
 	description="Découvrez le Village Aux Dames, un écolieu intergénérationnel LGBT+ qui participe à un mode de vie alternatif, solidaire et participatif | Village Aux Dames"
@@ -36,16 +42,20 @@
 </section>
 {#each body as slice}
     {#if slice.slice_type === "le_projet_en_3_idees"}
-    <section class="container pb-20 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="flex flex-col justify-between space-y-4">
+    <section class="container pb-20 grid grid-cols-1 md:grid-cols-2 space-y-8 sm:space-y-0">
+        <div class="flex flex-col justify-between space-y-6">
             {#each slice.items as idee}
-            <div>
-                <h2 class="text-lg font-black pb-1 text-bleu-dark">{PrismicDOM.RichText.asText(idee.titre_du_concept)}</h2>
-                <div class="text-gray-dark leading-7">{@html PrismicDOM.RichText.asHtml(idee.description_concept)}</div>
+            <div class="concept-container">
+                <h2 class="text-xl uppercase font-black pb-1 text-bleu-dark">{PrismicDOM.RichText.asText(idee.titre_du_concept)}</h2>
+                <div class="text-gray-dark leading-7 prose">{@html PrismicDOM.RichText.asHtml(idee.description_concept)}</div>
             </div>
             {/each}
         </div>
-        <img class="order-first md:order-last w-full h-[300px] md:h-full object-cover" src={projet.data.image_principale.url} alt={projet.data.image_principale.alt}>
+        <img class="md:hidden order-first w-full h-[300px] object-cover pb-8" src={projet.data.image_1.url} alt={projet.data.image_1.alt}>
+        <div class="hidden md:flex flex-col justify-between space-y-5">
+            <img class="order-last w-full h-full object-cover" src={projet.data.image_1.url} alt={projet.data.image_1.alt}>
+            <img class="order-last w-full h-full object-cover" src={projet.data.image_2.url} alt={projet.data.image_2.alt}>
+        </div>
     </section>
     {:else if slice.slice_type === "liste_des_partenaires"}
     <section class="container pb-20 md:pb-24 text-center">
@@ -56,7 +66,7 @@
                 <img src={logo.logo.url} alt={logo.logo.alt}>
             {/each}
         </div>
-        <div class="md:text-center md:mx-auto text-gray-600 pb-5 md:pb-8 md:w-2/3">{@html PrismicDOM.RichText.asHtml(slice.primary.intro)}</div>
+        <div class="md:text-center md:mx-auto text-gray-600 pb-5 md:pb-8 md:w-2/3 prose">{@html PrismicDOM.RichText.asHtml(slice.primary.intro)}</div>
         <a href="/" class="inline-block cta-btn">{slice.primary.bouton_texte}</a>
     </section>
     {/if}

@@ -24,6 +24,7 @@
 <style>
 	form {
 		@apply lg:w-1/2;
+		height: fit-content;
 	}
 </style>
 

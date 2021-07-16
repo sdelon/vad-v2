@@ -33,7 +33,7 @@
 	<div class="container flex justify-between items-end relative">
 		<div>
 			<h1 class="text-6xl sm:text-7xl lg:text-8xl tracking-tight font-black text-gray-dark pb-6">{PrismicDom.RichText.asText(accueil.data.titre)}</h1>
-			<h2 class="text-2xl sm:text-3xl font-medium leading-loose text-gray-700 pb-10">{PrismicDom.RichText.asText(accueil.data.intro)}</h2>
+			<h2 class="text-2xl sm:text-3xl font-medium leading-loose text-gray-700 pb-10">{@html PrismicDom.RichText.asHtml(accueil.data.intro)}</h2>
 			<a href="/" class="transition duration-500 bg-gray-dark text-yellow font-bold px-8 py-3 rounded-lg uppercase tracking-wide">{accueil.data.bouton_text}</a>
 		</div>
 		<img width="117" height="150" class="hidden md:block w-[450px] h-[450px] object-fit" src={logoVAD} alt="logo du Village Aux Dames">

@@ -16,6 +16,7 @@
 	import PageTagHeader from '$lib/UI/PageTagHeader.svelte'
 	import HeaderSection from '$lib/UI/HeaderSection.svelte'
 	import CardActivite from '$lib/UI/CardActivite.svelte'
+	import ActivitesCommun from '$lib/ActivitesCommun.svelte'
 	
     export let activites
     $: ({ body } = activites.data)
@@ -35,7 +36,7 @@
 	text={activites.data.intro_principale} 
 	styles="text-gray-dark pt-8" />
 </section>
-<section class="container pb-20 grid grid-cols-1 md:grid-cols-7 gap-5">
+<section class="container pb-16 grid grid-cols-1 md:grid-cols-7 gap-5">
 	<div class="w-72 md:w-full md:col-span-2 p-3 sticky top-0 bg-bleu-light text-sm font-light rounded shadow-lg">
 		<ul class="flex justify-between flex-col sticky top-0 md:space-y-5 self-start">
 			{#each body as slice}
@@ -52,6 +53,7 @@
         {#if slice.slice_type === 'activite'}
 			<CardActivite {slice} order={i % 2 === 0 ? "lg:order-first" : "lg:order-last"}/>
 		{/if}
-            {/each}
+		{/each}
 	</div>
 </section>
+<ActivitesCommun {body} />

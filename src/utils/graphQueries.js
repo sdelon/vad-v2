@@ -52,7 +52,8 @@ const projetQuery = `{
     page_projet{
     titre_principal
     intro_principale
-    image_principale
+    image_1
+    image_2
     body{
     ...onle_projet_en_3_idees{
     repeat{
@@ -89,20 +90,6 @@ const fondatricesQuery = `{
     bouton_texte
     bouton_lien
     image
-    }
-    }
-    }
-    }
-    }`
-
-const activitesQuery = `{
-    page_activites{
-    titre_principal
-    intro_principale
-    body{
-    ...onactivite{
-    non-repeat{
-    ...non-repeatFields
     }
     }
     }
