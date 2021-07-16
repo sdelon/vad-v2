@@ -174,5 +174,5 @@ const eventsQuery = `{
     }
     }`
 
-export { accueilQuery, projetQuery, fondatricesQuery, activitesQuery, ateliersQuery, agendaQuery, eventsQuery }
+export { accueilQuery, projetQuery, fondatricesQuery, ateliersQuery, agendaQuery, eventsQuery }
 
