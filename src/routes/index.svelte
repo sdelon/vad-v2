@@ -30,13 +30,21 @@
 
 <section class="pb-20 relative">
 	<div class="bg-tw-yellow-200 bg-opacity-50 w-full h-full absolute inset-0"></div>
-	<div class="container flex justify-between items-stretch relative">
-		<div>
+	<div class="container flex justify-between relative">
+		<div class="flex flex-col justify-between">
 			<h1 class="text-6xl sm:text-7xl tracking-tight font-black text-gray-dark pb-6">{PrismicDom.RichText.asText(accueil.data.titre)}</h1>
 			<h2 class="text-2xl font-medium text-gray-700 pb-10">{@html PrismicDom.RichText.asHtml(accueil.data.intro)}</h2>
-			<a href="/" class="transition duration-500 bg-gray-dark text-yellow font-bold px-8 py-3 rounded-lg uppercase tracking-wide">{accueil.data.bouton_text}</a>
+			<div class="flex-none">
+				<a href="/" class="flex items-center cta">
+					<span>{accueil.data.bouton_text}</span>
+					<svg width="13px" height="10px" viewBox="0 0 13 10">
+						<path d="M1,5 L11,5"></path>
+						<polyline points="8 1 12 5 8 9"></polyline>
+					</svg>
+				</a>
+			</div>
 		</div>
-		<img width="117" height="150" class="hidden md:block w-[400px] h-[400px] object-fit" src={logoVAD} alt="logo du Village Aux Dames">
+		<img width="117" height="150" class="hidden md:block w-[350px] h-[350px] object-fit" src={logoVAD} alt="logo du Village Aux Dames">
 	</div>
 </section>
 {#each accueil.data.body as slice}
@@ -51,7 +59,7 @@
 		</div>
 		<article class="grid grid-cols-1 lg:grid-cols-3 md:gap-8 text-gray-700 pt-12">
 				<img class="block lg:hidden pb-8" src={slice.primary.image_section.url} alt={slice.primary.image_section.alt}>
-				<div class="flex flex-col md:flex-row lg:flex-col">
+				<div class="flex flex-col md:flex-row md:space-x-8 lg:space-x-0 lg:flex-col">
 					<Paragraphe
 					titre={slice.items[0].titre_du_concept}
 					intro={slice.items[0].intro_du_concept} />
@@ -62,7 +70,7 @@
 				<div class="hidden lg:block">
 					<img class="w-full h-full object-cover"src={slice.primary.image_section.url} alt={slice.primary.image_section.alt}>
 				</div>
-				<div class="flex flex-col md:flex-row lg:flex-col">
+				<div class="flex flex-col md:flex-row md:space-x-8 lg:space-x-0 lg:flex-col">
 					<Paragraphe
 					titre={slice.items[2].titre_du_concept}
 					intro={slice.items[2].intro_du_concept}  />

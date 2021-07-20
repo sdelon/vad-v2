@@ -10,3 +10,58 @@
 .cta-btn {
     @apply bg-bleu-primaire hover:bg-bleu-light transition duration-500 text-gray-dark font-bold px-5 py-4 rounded-lg uppercase tracking-wide my-12;
 }
+
+.cta {
+	--bg-bleu: #09C7D4;
+	--height: 70px;
+	--width: 70px;
+	--border-radius: 35px;
+	position: relative;
+	margin: auto;
+	padding: 19px 22px;
+	transition: all .2s ease;
+	height: var(--height);
+}
+
+.cta::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	border-radius: var(--border-radius);
+	background: var(--bg-bleu);
+	width: var(--width);
+	height: var(--height);
+	transition: all .5s ease;
+}
+
+.cta:hover {
+	width: 100%;
+    background: var(--bg-bleu);
+	border-radius: var(--border-radius);
+	transition: all .3s ease;
+}
+
+.cta span {
+	position: relative;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: 900;
+	letter-spacing: .25em;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.cta svg {
+	position: relative;
+	top: 0;
+	margin-left: 10px;
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #111;
+	stroke-width: 2;
+	transform: translateX(-5px);
+	transition: all .3s ease;
+}
