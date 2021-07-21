@@ -91,16 +91,7 @@
 		</div>
 		<article class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-12">
 		{#each slice.items as event}
-			<CardEvent 
-			uid={event.articles_to_link.uid}
-			parentPage={event.articles_to_link.data.page}
-			src={event.articles_to_link.data.image_principale.url}
-			alt={event.articles_to_link.data.image_principale.alt}
-			categorie={event.articles_to_link.data.categorie}
-			dateDebut={event.articles_to_link.data.date_debut}
-			dateFin={event.articles_to_link.data.date_fin}
-			titre={event.articles_to_link.data.titre}
-			extrait={event.articles_to_link.data.extrait} />
+			<CardEvent isHomePage {event} />
 		{/each}
 		</article>
 	</section>

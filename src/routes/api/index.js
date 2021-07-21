@@ -8,9 +8,14 @@ export async function get() {
         {'graphQuery': accueilQuery}
     )
 
+    const events = await Client.query(
+        [Prismic.Predicates.at('document.type', 'pages_evenements')]
+    )
+
     return {
         body: {
-            accueil: accueil.results[0]
+            accueil: accueil.results[0],
+            events: events.results
         }
     }
 }

@@ -2,6 +2,7 @@
     import PrismicDOM from 'prismic-dom'
     import { capitalize } from '../utils/helpers'
     import calendarIcon from '../../static/images/calendar-3.png'
+    import Image from '$lib/UI/Image.svelte'
 
     export let parentPage, event
     export let filteredEvents
@@ -14,7 +15,12 @@
     </div>
     <h1 class="text-gray-800 text-5xl font-bold">{PrismicDOM.RichText.asText(event.data.titre)}</h1>
     <p class="text-gray-500">{PrismicDOM.RichText.asText(event.data.extrait)}</p>
-    <img class="w-full h-96 object-cover rounded-lg" src={event.data.image_principale.url} alt={event.data.image_principale.alt} >
+    <Image 
+    src={event.data.image_principale.url}
+    alt={event.data.image_principale.alt}
+    width={event.data.image_principale.dimensions.width}
+    height={event.data.image_principale.dimensions.height}
+    styles="w-full h-96 object-cover rounded-lg"/>
     <div class="flex items-center justify-start space-x-5 bg-gray-card-bg w-full h-24 p-8 rounded border-[1px] border-solid border-gray-400">
         <img class="w-8 h-8" src={calendarIcon} alt="icone calendrier">
         <p class="text-gray-800 text-lg">Du {event.data.date_debut} au {event.data.date_fin}</p>

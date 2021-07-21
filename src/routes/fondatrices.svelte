@@ -11,11 +11,12 @@
 </script>
 
 <script>
+	import PrismicDOM from 'prismic-dom'
 	import SEOHead from '$lib/SEOHead.svelte'
 	import PageTagHeader from '$lib/UI/PageTagHeader.svelte'
 	import HeaderSection from '$lib/UI/HeaderSection.svelte'
 	import BandeauSoutien from '$lib/UI/BandeauSoutien.svelte'
-    import PrismicDOM from 'prismic-dom'
+	import Image from '$lib/UI/Image.svelte'
 
 	export let fondatrices
 	$: ({ body } = fondatrices.data)
@@ -44,7 +45,12 @@
 </section>
 <section class="container pb-20 md:pb-24">
 	<div class="font-light sm:w-1/2 prose">{@html PrismicDOM.RichText.asHtml(fondatrices.data.description_1)}</div>
-	<img class="w-full h-[400px] object-cover py-12" src={fondatrices.data.image.url} alt={fondatrices.data.image.alt}>
+	<Image 
+	src={fondatrices.data.image.url}
+	alt={fondatrices.data.image.alt}
+	width={fondatrices.data.image.dimensions.width}
+	height={fondatrices.data.image.dimensions.height}
+	styles="w-full h-[400px] object-cover py-12" />
 	<div class="flex flex-col lg:flex-row justify-between lg:space-x-20">
 		<form id="contact" class="order-last lg:order-first bg-bleu-light p-6 rounded-lg space-y-8 mt-12 lg:mt-24 shadow-lg">
 			<div class="text-gray-dark"><p>Vous souhaitez passer des vacances dans un écovillage en devenir ? Vous êtes intéressés par la mouvance éco-lieux mais ne savez pas par où commencer ? Vous souhaitez rejoindre le projet du Village aux dames tant que résidentes  bénévole, intervenant externe ? Envoyez-nous un message</p></div>

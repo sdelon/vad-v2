@@ -2,13 +2,19 @@
     import PrismicDom from 'prismic-dom'
     import calendarIcon from '/static/images/calendar-3.png'
     import BtnPlus from '$lib/UI/BtnPlus.svelte'
+    import Image from '$lib/UI/Image.svelte'
 
     export let slice
 </script>
 
 <div class="bg-yellow-light rounded-xl p-2 flex flex-col md:flex-row md:space-x-5">
     <a class="md:w-60 h-32 md:h-full lg:shadow-lg" href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}">
-        <img class="rounded-xl w-full h-full object-cover filter hover:brightness-50 transition duration-500 cursor-pointer" src={slice.articles_to_link.data.image_principale.url} alt={slice.articles_to_link.data.image_principale.alt}>
+        <Image 
+        src={slice.articles_to_link.data.image_principale.url}
+        alt={slice.articles_to_link.data.image_principale.alt} 
+        width={slice.articles_to_link.data.image_principale.dimensions.width}
+        height={slice.articles_to_link.data.image_principale.dimensions.height}
+        styles="rounded-xl w-full h-full object-cover filter hover:brightness-50 transition duration-500 cursor-pointer"/>
     </a>
     <div class="flex flex-col pt-4">
         <p class="text-bleu-dark text-sm uppercase font-semibold tracking-wide pb-4">#{slice.articles_to_link.data.categorie}</p>

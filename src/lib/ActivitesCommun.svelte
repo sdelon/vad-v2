@@ -1,5 +1,7 @@
 <script>
   import PrismicDom from 'prismic-dom'
+  import Image from '$lib/UI/Image.svelte'
+
   export let body
 </script>
 
@@ -29,18 +31,38 @@
         <div class="w-full lg:w-1/2">
           <div class="mb-4 flex flex-wrap items-end">
             <div class="mb-4 lg:mb-0 w-full lg:w-2/3 px-3">
-              <img class="w-full h-32 lg:h-48 object-cover rounded" src={slice.items[0].illu.url} alt={slice.items[0].illu.alt}>
+              <Image 
+              src={slice.items[0].illu.url}
+              alt={slice.items[0].illu.alt} 
+              width={slice.items[0].illu.dimensions.width}
+              height={slice.items[0].illu.dimensions.height}
+              styles="w-full h-32 lg:h-48 object-cover rounded"/>
             </div>
             <div class="w-full lg:w-1/3 px-3">
-              <img class="w-full h-32 object-cover rounded" src={slice.items[1].illu.url} alt={slice.items[1].illu.alt}>
+              <Image 
+              src={slice.items[1].illu.url}
+              alt={slice.items[1].illu.alt} 
+              width={slice.items[1].illu.dimensions.width}
+              height={slice.items[1].illu.dimensions.height}
+              styles="w-full h-32 object-cover rounded"/>
             </div>
           </div>
           <div class="flex flex-wrap items-start">
             <div class="mb-4 lg:mb-0 w-full lg:w-1/3 px-3">
-              <img class="w-full h-32 object-cover rounded" src={slice.items[2].illu.url} alt={slice.items[2].illu.alt}>
+              <Image 
+              src={slice.items[2].illu.url}
+              alt={slice.items[2].illu.alt} 
+              width={slice.items[2].illu.dimensions.width}
+              height={slice.items[2].illu.dimensions.height}
+              styles="w-full h-32 object-cover rounded"/>
             </div>
             <div class="w-full lg:w-2/3 px-3">
-              <img class="w-full h-32 lg:h-48 object-cover rounded" src={slice.items[3].illu.url} alt={slice.items[3].illu.alt}>
+              <Image 
+              src={slice.items[3].illu.url}
+              alt={slice.items[3].illu.alt} 
+              width={slice.items[3].illu.dimensions.width}
+              height={slice.items[3].illu.dimensions.height}
+              styles="w-full h-32 lg:h-48 object-cover rounded"/>
             </div>
           </div>
         </div>

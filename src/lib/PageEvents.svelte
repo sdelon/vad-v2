@@ -7,6 +7,7 @@
 	import CardEnAvant from '$lib/UI/CardEnAvant.svelte'
 	import BtnReadMore from '$lib/UI/BtnReadMore.svelte'
 	import Paragraphe from '$lib/UI/Paragraphe.svelte'
+	import Image from '$lib/UI/Image.svelte'
 
     export let page, events, titrePage, titreSection1, titreTagHeader
 	let currentEvents = 1
@@ -39,16 +40,7 @@
 	<FilteringTags on:filterByTag on:reset />
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12">
 	{#each events as event}
-			<CardEvent
-			parentPage={titrePage}
-			uid={event.uid}
-            src={event.data.image_principale.url}
-            alt={event.data.image_principale.alt}
-            categorie={event.data.categorie}
-            titre={event.data.titre}
-            extrait={event.data.extrait}
-            dateDebut={event.data.date_debut}
-            dateFin={event.data.date_fin} />
+			<CardEvent parentPage={titrePage} {event} />
 		{/each}
 	</div>
 	{#if currentEvents < events.length}
@@ -60,12 +52,17 @@
 {#each page.data.body as slice}
 {#if slice.slice_type === 'evenements_prives'}
 <section class="container pb-20 text-center">
-	<img class="w-full h-60 rounded-lg object-cover" src={slice.primary.image.url} alt={slice.primary.image.alt}>
+	<Image 
+		src={slice.primary.image.url} 
+		alt={slice.primary.image.alt} 
+		width={slice.primary.image.dimensions.width}
+		height={slice.primary.image.dimensions.height}
+		styles="w-full h-60 rounded-lg object-cover" />
 	<HeaderSection 
-	titre={slice.primary.titre}
-	text={slice.primary.texte} 
-	styles="text-gray-dark pt-8"
-	borderBgColor="bg-gray-dark" />
+		titre={slice.primary.titre}
+		text={slice.primary.texte} 
+		styles="text-gray-dark pt-8"
+		borderBgColor="bg-gray-dark" />
 	<a href="/" class="inline-block cta-btn">{slice.primary.bouton_texte}</a>
 </section>
 {:else if slice.slice_type === 'organisation_de_visites'}
@@ -77,7 +74,12 @@
 			<div class="text-gray-600 pb-5 md:pb-8 md:w-2/3">{@html PrismicDOM.RichText.asHtml(slice.primary.intro)}</div>
 			<a href="/" class="bg-bleu-primaire hover:bg-bleu-light px-6 py-3 rounded-lg text-gray-dark uppercase text-lg font-bold tracking-wide self-start">{slice.primary.bouton_texte}</a>
 		</div>
-		<img class="order-first md:order-last w-full h-48 md:w-96 md:h-96 object-cover rounded-lg pb-8 md:pb-0" src={slice.primary.image.url} alt={slice.primary.image.alt}>
+		<Image 
+		src={slice.primary.image.url} 
+		alt={slice.primary.image.alt} 
+		width={slice.primary.image.dimensions.width}
+		height={slice.primary.image.dimensions.height}
+		styles="order-first md:order-last w-full h-48 md:w-96 md:h-96 object-cover rounded-lg pb-8 md:pb-0" />
 	</div>
 	<div class="flex flex-col sm:flex-row justify-between pt-8 sm:space-x-5">
         {#each slice.items as item}
