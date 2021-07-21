@@ -12,7 +12,8 @@
     alt={slice.primary.image.alt}
     width={slice.primary.image.dimensions.width}
     height={slice.primary.image.dimensions.height}
-    styles="{order} w-full lg:w-60 h-60 object-cover rounded-lg pb-6 lg:pb-0"/>
+    container_styles="{order} w-full lg:w-60 h-60 pb-6 lg:pb-0 flex-none"
+    styles="w-full h-full object-cover rounded-lg"/>
     <div class="{order === "lg:order-first" ? "lg:text-right lg:ml-20" : "text-left lg:mr-20"}">
         <h2 class="text-2xl font-black text-bleu-dark pb-2">{PrismicDom.RichText.asText(slice.primary.titre_activite)}</h2>
         <div class="text-gray-dark leading-6 font-light">{@html PrismicDom.RichText.asHtml(slice.primary.texte_activite)}</div>

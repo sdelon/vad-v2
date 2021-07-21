@@ -17,6 +17,7 @@
 	import BandeauSoutien from '$lib/UI/BandeauSoutien.svelte'
 	import CardEvent from '$lib/UI/CardEvent.svelte'
 	import Paragraphe from '$lib/UI/Paragraphe.svelte'
+	import Image from '$lib/UI/Image.svelte'
 	import logoVAD from '../../static/images/logo-arbre-VAD-v2.svg'
 
 	export let accueil
@@ -58,7 +59,12 @@
 			borderBgColor="bg-gray-dark" />
 		</div>
 		<article class="grid grid-cols-1 lg:grid-cols-3 md:gap-8 text-gray-700 pt-12">
-				<img class="block lg:hidden pb-8" src={slice.primary.image_section.url} alt={slice.primary.image_section.alt}>
+				<Image 
+				src={slice.primary.image_section.url} 
+				alt={slice.primary.image_section.alt} 
+				width={slice.primary.image_section.dimensions.width}
+				height={slice.primary.image_section.dimensions.height}
+				container_styles="block lg:hidden pb-8" />
 				<div class="flex flex-col md:flex-row md:space-x-8 lg:space-x-0 lg:flex-col">
 					<Paragraphe
 					titre={slice.items[0].titre_du_concept}
@@ -68,7 +74,13 @@
 					intro={slice.items[1].intro_du_concept} />
 				</div>
 				<div class="hidden lg:block">
-					<img class="w-full h-full object-cover"src={slice.primary.image_section.url} alt={slice.primary.image_section.alt}>
+					<Image 
+					src={slice.primary.image_section.url} 
+					alt={slice.primary.image_section.alt} 
+					width={slice.primary.image_section.dimensions.width}
+					height={slice.primary.image_section.dimensions.height}
+					container_styles="w-full h-full"
+					styles="w-full h-full object-cover rounded-lg" />
 				</div>
 				<div class="flex flex-col md:flex-row md:space-x-8 lg:space-x-0 lg:flex-col">
 					<Paragraphe
