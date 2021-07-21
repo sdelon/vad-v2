@@ -1,6 +1,8 @@
 <script>
     import PrismicDom from 'prismic-dom'
     import calendarIcon from '/static/images/calendar-3.png'
+    import BtnPlus from '$lib/UI/BtnPlus.svelte'
+
     export let slice
 </script>
 
@@ -18,6 +20,6 @@
         </div>
         {/if}
         <div class="font-light">{@html PrismicDom.RichText.asHtml(slice.articles_to_link.data.extrait)}</div>
-        <a sveltekit:prefetch href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}" class="inline-block mt-6 bg-gray-dark hover:bg-gray-600 text-gray-100 px-6 py-2 rounded-full self-start">En savoir plus</a>
+        <BtnPlus href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}" />
     </div>
 </div>

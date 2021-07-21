@@ -34,7 +34,7 @@
 		<div class="flex flex-col justify-between">
 			<h1 class="text-6xl sm:text-7xl tracking-tight font-black text-gray-dark pb-6">{PrismicDom.RichText.asText(accueil.data.titre)}</h1>
 			<h2 class="text-2xl font-medium text-gray-700 pb-10">{@html PrismicDom.RichText.asHtml(accueil.data.intro)}</h2>
-			<div class="flex-none">
+			<div class="flex-none w-80">
 				<a href="/" class="flex items-center cta">
 					<span>{accueil.data.bouton_text}</span>
 					<svg width="13px" height="10px" viewBox="0 0 13 10">

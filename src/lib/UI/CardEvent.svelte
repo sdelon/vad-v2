@@ -2,6 +2,8 @@
     import PrismicDom from 'prismic-dom'
     import { fade } from 'svelte/transition'
     import calendarIcon from '../../../static/images/calendar-3.png'
+    import BtnPlus from '$lib/UI/BtnPlus.svelte'
+
     export let src, alt, categorie, titre, extrait, dateDebut, dateFin, parentPage, uid
 </script>
 
@@ -18,5 +20,5 @@
     </div>
     {/if}
     <div class="font-light flex-1">{@html PrismicDom.RichText.asHtml(extrait)}</div>
-    <a sveltekit:prefetch href="/{parentPage}/{uid}" class="inline-block mt-8 bg-gray-800 hover:bg-gray-600 text-gray-200 px-6 py-2 rounded-full self-start">En savoir plus</a>
+    <BtnPlus href="/{parentPage}/{uid}" />
 </div>
