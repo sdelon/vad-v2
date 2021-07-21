@@ -91,7 +91,7 @@
 		</div>
 		<article class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-12">
 		{#each slice.items as event}
-			<CardEvent isHomePage {event} />
+			<CardEvent isHomePage {event} uid={event.articles_to_link.uid} />
 		{/each}
 		</article>
 	</section>

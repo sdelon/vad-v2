@@ -2,7 +2,7 @@
     export let href
 </script>
 
-<div class="w-full mt-8 mb-3 self-start">
+<div class="w-full mt-8 mb-3 self-start cursor-pointer">
     <a sveltekit:prefetch {href} class="btn-plus flex items-center">
         <span>En savoir plus</span>
         <svg width="13px" height="10px" viewBox="0 0 13 10">

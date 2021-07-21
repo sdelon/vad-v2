@@ -5,13 +5,14 @@
     import BtnPlus from '$lib/UI/BtnPlus.svelte'
     import Image from '$lib/UI/Image.svelte'
 
-    export let event, parentPage, isHomePage
+    export let event, uid, isHomePage, parentPage
 
     $: isHomePage ? event = event.articles_to_link.data : event = event.data
+    $: isHomePage ? parentPage = event.page : parentPage
 </script>
 
 <div transition:fade class="bg-yellow-light rounded-lg p-5 flex flex-col">
-    <a href="/{parentPage}/{event.uid}">
+    <a href="/{parentPage}/{uid}">
         <Image 
         src={event.image_principale.url} 
         alt={event.image_principale.alt}
@@ -28,5 +29,5 @@
     </div>
     {/if}
     <div class="font-light flex-1">{@html PrismicDom.RichText.asHtml(event.extrait)}</div>
-    <BtnPlus href="/{parentPage}/{event.uid}" />
+    <BtnPlus href="/{parentPage}/{uid}" />
 </div>
