@@ -80,9 +80,9 @@ const fondatricesQuery = `{
     page_fondatrices{
     titre_principal
     intro
-    description_1
-    description_2
-    image
+    description
+    image_1
+    image_2
     body{
     ...onbandeau_de_soutien{
     non-repeat{
