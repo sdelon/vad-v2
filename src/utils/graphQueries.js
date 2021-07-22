@@ -79,6 +79,7 @@ const projetQuery = `{
 const fondatricesQuery = `{
     page_fondatrices{
     titre_principal
+    intro
     description_1
     description_2
     image

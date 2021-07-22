@@ -26,7 +26,7 @@
 <h2 class="container uppercase text-gray-dark text-4xl font-black tracking-tight pb-4 md:text-center">{PrismicDOM.RichText.asText(slice.primary.titre_section)}</h2>
 <div class="w-32 h-2 bg-gray-dark mx-auto mb-8"></div>
 <section class="w-full bg-gray-200 px-5 lg:px-0">
-	<div class="lg:max-w-screen-lg mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 space-y-5 sm:space-y-0 sm:space-x-10">
+	<div class="lg:max-w-screen-lg mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {#each slice.items as slice}
 			<CardEnAvant {slice}/>
         {/each}
