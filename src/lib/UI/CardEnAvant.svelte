@@ -27,7 +27,7 @@
             <p class="text-gray-600 text-sm">Du {slice.articles_to_link.data.date_debut} au {slice.articles_to_link.data.date_fin}</p>
         </div>
         {/if}
-        <div class="font-light">{@html PrismicDom.RichText.asHtml(slice.articles_to_link.data.extrait)}</div>
+        <div class="font-light flex-1">{@html PrismicDom.RichText.asHtml(slice.articles_to_link.data.extrait)}</div>
         <BtnPlus href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}" />
     </div>
 </div>
