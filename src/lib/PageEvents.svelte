@@ -26,7 +26,7 @@
 <h2 class="container uppercase text-gray-dark text-4xl font-black tracking-tight pb-4 md:text-center">{PrismicDOM.RichText.asText(slice.primary.titre_section)}</h2>
 <div class="w-32 h-2 bg-gray-dark mx-auto mb-8"></div>
 <section class="w-full bg-gray-200 px-5 lg:px-0">
-	<div class="lg:max-w-screen-lg mx-auto py-8 flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-10">
+	<div class="lg:max-w-screen-lg mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 space-y-5 sm:space-y-0 sm:space-x-10">
         {#each slice.items as slice}
 			<CardEnAvant {slice}/>
         {/each}
@@ -75,11 +75,13 @@
 			<a href="/" class="bg-bleu-primaire hover:bg-bleu-light px-6 py-3 rounded-lg text-gray-dark uppercase text-lg font-bold tracking-wide self-start">{slice.primary.bouton_texte}</a>
 		</div>
 		<Image 
-		src={slice.primary.image.url} 
+		src={slice.primary.image.url}
+		mq_sizes="(min-width: 768px) 25vw, 100vw" 
 		alt={slice.primary.image.alt} 
 		width={slice.primary.image.dimensions.width}
 		height={slice.primary.image.dimensions.height}
-		styles="order-first md:order-last w-full h-48 md:w-96 md:h-96 object-cover rounded-lg pb-8 md:pb-0" />
+		container_styles="mt-8 md:mt-0"
+		styles="order-first md:order-last w-full h-48 md:w-96 md:h-96 object-cover rounded-lg pb-5 md:pb-0" />
 	</div>
 	<div class="flex flex-col sm:flex-row justify-between pt-8 sm:space-x-5">
         {#each slice.items as item}

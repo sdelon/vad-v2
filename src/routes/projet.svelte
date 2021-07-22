@@ -15,6 +15,7 @@
 	import SEOHead from '$lib/SEOHead.svelte'
 	import PageTagHeader from '$lib/UI/PageTagHeader.svelte'
 	import HeaderSection from '$lib/UI/HeaderSection.svelte'
+    import Image from '$lib/UI/Image.svelte'
 
 	export let projet
     $: ({ body } = projet.data)
@@ -51,10 +52,30 @@
             </div>
             {/each}
         </div>
-        <img class="md:hidden order-first w-full h-[300px] object-cover pb-8" src={projet.data.image_1.url} alt={projet.data.image_1.alt}>
+        <Image 
+        src={projet.data.image_1.url}
+        alt={projet.data.image_1.alt} 
+        width={projet.data.image_1.dimensions.width}
+        height={projet.data.image_1.dimensions.height}
+        container_styles="md:hidden order-first w-full h-[300px] pb-8"
+        styles="w-full h-full object-cover"/>
         <div class="hidden md:flex flex-col justify-between space-y-5">
-            <img class="order-last w-full h-full object-cover" src={projet.data.image_1.url} alt={projet.data.image_1.alt}>
-            <img class="order-last w-full h-full object-cover" src={projet.data.image_2.url} alt={projet.data.image_2.alt}>
+            <Image 
+            src={projet.data.image_1.url}
+            mq_sizes="50vw"
+            alt={projet.data.image_1.alt} 
+            width={projet.data.image_1.dimensions.width}
+            height={projet.data.image_1.dimensions.height}
+            container_styles="order-last w-full h-full"
+            styles="w-full h-full object-cover"/>
+            <Image 
+            src={projet.data.image_2.url}
+            mq_sizes="50vw"
+            alt={projet.data.image_2.alt} 
+            width={projet.data.image_2.dimensions.width}
+            height={projet.data.image_2.dimensions.height}
+            container_styles="order-last w-full h-full"
+            styles="w-full h-full object-cover"/>
         </div>
     </section>
     {:else if slice.slice_type === "liste_des_partenaires"}

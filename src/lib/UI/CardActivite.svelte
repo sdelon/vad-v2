@@ -8,7 +8,8 @@
 
 <div id={slugify(slice.primary.titre_activite[0].text)} class="flex flex-col lg:flex-row justify-between">
     <Image 
-    src={slice.primary.image.url} 
+    src={slice.primary.image.url}
+    mq_sizes="(min-width: 1024px) 25vw, 70vw"
     alt={slice.primary.image.alt}
     width={slice.primary.image.dimensions.width}
     height={slice.primary.image.dimensions.height}

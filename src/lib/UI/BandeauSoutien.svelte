@@ -9,7 +9,8 @@
 	<div class="grid grid-cols-1 md:grid-cols-2 bg-bleu-dark rounded-lg">
 		<div class="bg-gradient-to-b md:bg-gradient-to-tr from-bleu-primaire to-bleu-dark rounded-l-lg relative w-full h-80 md:h-full">
 			<Image 
-			src={slice.primary.image.url} 
+			src={slice.primary.image.url}
+			mq_sizes="(min-width: 760px) 50vw, 100vw"
 			alt={slice.primary.image.alt} 
 			width={slice.primary.image.dimensions.width}
 			height={slice.primary.image.dimensions.height}

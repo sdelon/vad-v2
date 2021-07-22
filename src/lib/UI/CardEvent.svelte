@@ -15,6 +15,7 @@
     <a href="/{parentPage}/{uid}">
         <Image 
         src={event.image_principale.url} 
+        mq_sizes="(min-width: 760px) 25vw, 100vw"
         alt={event.image_principale.alt}
         width={event.image_principale.dimensions.width}
         height={event.image_principale.dimensions.height}

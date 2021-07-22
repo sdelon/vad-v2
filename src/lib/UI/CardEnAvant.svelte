@@ -11,9 +11,11 @@
     <a class="md:w-60 h-32 md:h-full lg:shadow-lg" href="/{slice.articles_to_link.data.page}/{slice.articles_to_link.uid}">
         <Image 
         src={slice.articles_to_link.data.image_principale.url}
+        mq_sizes="(min-width: 760px) 20vw, 100vw"
         alt={slice.articles_to_link.data.image_principale.alt} 
         width={slice.articles_to_link.data.image_principale.dimensions.width}
         height={slice.articles_to_link.data.image_principale.dimensions.height}
+        container_styles="w-full h-full"
         styles="rounded-xl w-full h-full object-cover filter hover:brightness-50 transition duration-500 cursor-pointer"/>
     </a>
     <div class="flex flex-col pt-4">

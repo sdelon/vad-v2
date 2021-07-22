@@ -12,9 +12,9 @@
         {#each body as slice}
         {#if slice.slice_type === 'argumentaire'}
         <div class="mb-12 lg:mb-0 w-full lg:w-1/2 px-4">
-          <div class="max-w-md">
+          <div class="max-w-2xl">
             <h2 class="mb-3 text-4xl font-bold font-heading">{PrismicDom.RichText.asText(slice.primary.titre)}</h2>
-            <p class="mb-8 max-w-sm text-gray-600 prose">{@html PrismicDom.RichText.asHtml(slice.primary.intro)}</p>
+            <p class="mb-8 max-w-xl text-gray-600 prose">{@html PrismicDom.RichText.asHtml(slice.primary.intro)}</p>
             <ul>
               {#each slice.items as item}
               <li class="mb-2 flex items-center space-x-2 text-gray-700">
@@ -33,6 +33,7 @@
             <div class="mb-4 lg:mb-0 w-full lg:w-2/3 px-3">
               <Image 
               src={slice.items[0].illu.url}
+              mq_sizes="(min-width: 1020px) 25vw, 100vw"
               alt={slice.items[0].illu.alt} 
               width={slice.items[0].illu.dimensions.width}
               height={slice.items[0].illu.dimensions.height}
@@ -41,6 +42,7 @@
             <div class="w-full lg:w-1/3 px-3">
               <Image 
               src={slice.items[1].illu.url}
+              mq_sizes="(min-width: 1020px) 25vw, 100vw"
               alt={slice.items[1].illu.alt} 
               width={slice.items[1].illu.dimensions.width}
               height={slice.items[1].illu.dimensions.height}
@@ -51,6 +53,7 @@
             <div class="mb-4 lg:mb-0 w-full lg:w-1/3 px-3">
               <Image 
               src={slice.items[2].illu.url}
+              mq_sizes="(min-width: 1020px) 25vw, 100vw"
               alt={slice.items[2].illu.alt} 
               width={slice.items[2].illu.dimensions.width}
               height={slice.items[2].illu.dimensions.height}
@@ -59,6 +62,7 @@
             <div class="w-full lg:w-2/3 px-3">
               <Image 
               src={slice.items[3].illu.url}
+              mq_sizes="(min-width: 1020px) 25vw, 100vw"
               alt={slice.items[3].illu.alt} 
               width={slice.items[3].illu.dimensions.width}
               height={slice.items[3].illu.dimensions.height}
