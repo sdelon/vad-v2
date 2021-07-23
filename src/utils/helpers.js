@@ -8,3 +8,7 @@ export const getTags = array => {
         return newArr
     },[])
 }
+
+export const formatDate = date => {
+    return date.split(/[-]/).reverse().join('-')
+}

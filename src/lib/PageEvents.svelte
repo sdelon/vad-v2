@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation'
     import PrismicDOM from 'prismic-dom'
 	import FilteringTags from '$lib/UI/FilteringTags.svelte'
 	import PageTagHeader from '$lib/UI/PageTagHeader.svelte'
@@ -8,10 +9,15 @@
 	import BtnReadMore from '$lib/UI/BtnReadMore.svelte'
 	import Paragraphe from '$lib/UI/Paragraphe.svelte'
 	import Image from '$lib/UI/Image.svelte'
+	import OpenCalendar from '$lib/UI/OpenCalendar.svelte'
 
     export let page, events, titrePage, titreSection1, titreTagHeader
-	let currentEvents = 1
+	let currentEvents = 1, isOpen = false
 </script>
+
+<OpenCalendar
+titre_page={titrePage === 'agenda' ? "L'agenda" : "Les ateliers"} 
+on:open_calendar={() => goto('/calendrier')}/>
 
 <section class="container">
 	<PageTagHeader page={titreTagHeader}/>

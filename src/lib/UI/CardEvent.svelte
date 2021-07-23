@@ -1,5 +1,6 @@
 <script>
     import PrismicDom from 'prismic-dom'
+    import { formatDate } from '../../utils/helpers'
     import { fade } from 'svelte/transition'
     import calendarIcon from '../../../static/images/calendar-3.png'
     import BtnPlus from '$lib/UI/BtnPlus.svelte'
@@ -26,7 +27,7 @@
     {#if event.date_debut !== undefined}
     <div class="flex pt-2 pb-5 items-center space-x-4">
         <img class="w-4 h-4" src={calendarIcon} alt="icone calendrier">
-        <p class="text-gray-600 text-sm">Du {event.date_debut} au {event.date_fin}</p>
+        <p class="text-gray-600 text-sm">Du {formatDate(event.date_debut)} au {formatDate(event.date_fin)}</p>
     </div>
     {/if}
     <div class="font-light flex-1">{@html PrismicDom.RichText.asHtml(event.extrait)}</div>

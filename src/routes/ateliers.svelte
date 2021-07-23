@@ -40,7 +40,7 @@ titreTagHeader='Ateliers et activités'
 titrePage='ateliers'
 titreSection1='Tous les ateliers du Village Aux Dames'
 page={ateliers} 
-events={filteredEvents} 
+events={filteredEvents}
 {currentEvents}
 {tags}
 on:filterByTag={e => updateTags(e.detail)}
