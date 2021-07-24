@@ -90,7 +90,7 @@
     <section class="w-3/4">
         {#each all_months as month}
         {#if month.is_active}
-        <p class="text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin text-5xl">{Object.keys(year)[idx]}</span></p>
+        <p class="text-3xl sm:text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin sm:text-5xl">{Object.keys(year)[idx]}</span></p>
         <EventCalendar events={get_events_per_month(Object.values(year)[idx], month.nb)}/>
         {/if}
         {/each}
