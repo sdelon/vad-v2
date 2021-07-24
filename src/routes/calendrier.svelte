@@ -12,34 +12,43 @@
 </script>
 
 <script>
+    import { setContext } from 'svelte'
     import Breadcrumb from '$lib/UI/Breadcrumb.svelte'
+    import EventCalendar from '$lib/UI/EventCalendar.svelte'
 
     export let sorted_events, nb_of_events
     let idx = 0
-    let all_months = [
-        {month: 'Janvier', nb: 1, is_active: false},
-        {month: 'Février', nb: 2, is_active: false},
-        {month: 'Mars', nb: 3, is_active: false},
-        {month: 'Avril', nb: 4, is_active: false},
-        {month: 'Mai', nb: 5, is_active: false},
-        {month: 'Juin', nb: 6, is_active: false},
-        {month: 'Juillet', nb: 7, is_active: false},
-        {month: 'Août', nb: 8, is_active: false},
-        {month: 'Septembre', nb: 9, is_active: false},
-        {month: 'Octobre', nb: 10, is_active: false},
-        {month: 'Novembre', nb: 11, is_active: false},
-        {month: 'Décembre', nb: 12, is_active: false}
+    const all_months = [
+        {month: 'Janvier', nb: '01', is_active: false},
+        {month: 'Février', nb: '02', is_active: false},
+        {month: 'Mars', nb: '03', is_active: false},
+        {month: 'Avril', nb: '04', is_active: false},
+        {month: 'Mai', nb: '05', is_active: false},
+        {month: 'Juin', nb: '06', is_active: false},
+        {month: 'Juillet', nb: '07', is_active: false},
+        {month: 'Août', nb: '08', is_active: false},
+        {month: 'Septembre', nb: '09', is_active: false},
+        {month: 'Octobre', nb: '10', is_active: false},
+        {month: 'Novembre', nb: '11', is_active: false},
+        {month: 'Décembre', nb: '12', is_active: false}
     ]
+
+    setContext('all_months', all_months)
+    $: actual_month = new Date().getMonth()
 
     const length_of_array = sorted_events.map(years => Object.keys(years).length)
 
+    const get_month_data = (year, month, is_length = false) => {
+        return Object.entries(year).map(event => {
+            if(event[0] === month) return is_length ? event[1].length : event[1]
+        }).filter(value => value !== undefined)
+    } 
+
+    const get_events_per_month = (year, month) => get_month_data(year, month)
+
     const get_nb_events_per_month = (year, month, idx) => {
         const events_in_selected_year = Object.values(year)[idx]
-        const formatted_month = month.toString().length === 1 ? `0${month}` : `${month}`
-
-        const length = Object.entries(events_in_selected_year).map(event => {
-            if(event[0] === formatted_month) return event[1].length
-        }).filter(value => value !== undefined)
+        const length = get_month_data(events_in_selected_year, month, true)
 
         return length.length ? length : 0   
     }
@@ -53,14 +62,14 @@
 </script>
 
 <Breadcrumb />
-<div class="container py-8">
+<div class="container pt-8">
     <h2 class="text-gray-dark uppercase text-4xl font-black tracking-tight pb-4 text-center">Calendrier</h2>
     <div class="w-32 h-2 bg-gray-dark mx-auto mb-8"></div>
     <p class="max-w-lg mx-auto text-gray-700 text-center">Nous avons actuellement <span class="font-bold text-bleu-dark">{nb_of_events} événements</span> organisés et qui n'attendent que vous !</p>
 </div>
-<div class="container pb-20 flex space-x-3 md:space-x-8">
+<div class="container pb-20 flex space-x-3 md:space-x-10">
+    {#each sorted_events as year}
     <aside class="w-32">
-        {#each sorted_events as year}
         <div class="w-full flex justify-between items-center pb-8">
             <svg on:click={prev_year} class="w-6 h-6 text-gray-dark cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             <p>{Object.keys(year)[idx]}</p>
@@ -77,9 +86,14 @@
             </button>
             {/each}
         </div>
-        {/each}
     </aside>
     <section class="w-3/4">
-        
+        {#each all_months as month}
+        {#if month.is_active}
+        <p class="text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin text-5xl">{Object.keys(year)[idx]}</span></p>
+        <EventCalendar events={get_events_per_month(Object.values(year)[idx], month.nb)}/>
+        {/if}
+        {/each}
     </section>
+    {/each}
 </div>
