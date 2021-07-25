@@ -17,7 +17,7 @@
     import EventCalendar from '$lib/UI/EventCalendar.svelte'
 
     export let sorted_events, nb_of_events
-    let idx = 0
+    let idx = 0, is_calendar_empty = true
     const all_months = [
         {month: 'Janvier', nb: '01', is_active: false},
         {month: 'Février', nb: '02', is_active: false},
@@ -34,7 +34,7 @@
     ]
 
     setContext('all_months', all_months)
-    $: actual_month = new Date().getMonth()
+    $: actual_month = (new Date().getMonth() + 1).toString().length === 1 ? `0${new Date().getMonth() + 1}` : `${new Date().getMonth() + 1}`
 
     const length_of_array = sorted_events.map(years => Object.keys(years).length)
 
@@ -80,13 +80,24 @@
             <button 
             class:text-gray-800={month.is_active} 
             class:font-bold={month.is_active} 
-            on:click={() => month.is_active = !month.is_active} 
+            on:click={() => month.is_active = !month.is_active}
+            on:click={() => is_calendar_empty = !is_calendar_empty}
             class="block text-left text-gray-500">
             {month.month} ({get_nb_events_per_month(year, month.nb, idx)})
             </button>
             {/each}
         </div>
     </aside>
+    <!-- {#if is_calendar_empty}
+    <section class="w-3/4">
+        {#each all_months as month}
+        {#if month.nb === actual_month}
+        <p class="text-3xl sm:text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin sm:text-5xl">{Object.keys(year)[idx]}</span></p>
+        <EventCalendar events={get_events_per_month(Object.values(year)[idx], month.nb)}/>
+        {/if}
+        {/each}
+    </section>
+    {:else} -->
     <section class="w-3/4">
         {#each all_months as month}
         {#if month.is_active}
@@ -95,5 +106,6 @@
         {/if}
         {/each}
     </section>
+    <!-- {/if} -->
     {/each}
 </div>

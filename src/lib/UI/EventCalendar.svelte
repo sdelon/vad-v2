@@ -5,6 +5,7 @@
     import Image from '$lib/UI/Image.svelte'
 
     export let events
+
     const months = getContext('all_months')
 
     const format_month_name = nb => {
@@ -46,9 +47,9 @@
                 <h2 class="text-lg font-black tracking-wide text-gray-800">{PrismicDom.RichText.asText(event.data.titre)}</h2>
                 <p class="text-gray-500 text-sm">{format_date_calendrier(event.data.date_debut, event.data.date_fin)}</p>
             </div>
-            <div class="bg-bleu-dark flex justify-center items-center py-2 sm:py-0">
+            <div class="bg-bleu-dark hover:shadow-lg duration-300 flex justify-center items-center py-2 sm:py-0">
                 <a sveltekit:prefetch href="/{event.data.page}/{event.uid}">
-                    <svg class="w-6 h-6 text-gray-100 cursor-pointer hover:scale-150 duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <svg class="w-6 h-6 text-gray-100 cursor-pointer hover:scale-150 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </div>
         </div>
