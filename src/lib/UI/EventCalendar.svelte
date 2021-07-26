@@ -28,7 +28,7 @@
     <div class="w-full bg-gray-200 h-[2px]"></div>
     {#if events.length}
     <div class="divide-y-2">
-        {#each events[0] as event}
+        {#each events[0] as event (event.uid)}
         <div class="sm:grid sm:grid-cols-6 sm:gap-6">
             <div class="flex flex-row justify-center items-center sm:flex-col text-yellow space-x-4 sm:space-x-0 sm:space-y-4 text-center py-2">
                 <p class="font-black text-3xl">{event.data.date_debut.split(/[-]/)[2]}</p>

@@ -15,9 +15,10 @@
     import { setContext } from 'svelte'
     import Breadcrumb from '$lib/UI/Breadcrumb.svelte'
     import EventCalendar from '$lib/UI/EventCalendar.svelte'
+    import calendar_illu from '/static/images/calendar-illu.png'
 
     export let sorted_events, nb_of_events
-    let idx = 0, is_calendar_empty = true
+    let idx = 0
     const all_months = [
         {month: 'Janvier', nb: '01', is_active: false},
         {month: 'Février', nb: '02', is_active: false},
@@ -34,8 +35,8 @@
     ]
 
     setContext('all_months', all_months)
-    $: actual_month = (new Date().getMonth() + 1).toString().length === 1 ? `0${new Date().getMonth() + 1}` : `${new Date().getMonth() + 1}`
 
+    $: is_calendar_empty = all_months.filter(month => month.is_active)
     const length_of_array = sorted_events.map(years => Object.keys(years).length)
 
     const get_month_data = (year, month, is_length = false) => {
@@ -54,10 +55,9 @@
     }
 
     const prev_year = () => {
-        if(idx > 0) {
-            idx = (idx - 1) % length_of_array
-        }
+        if(idx > 0) idx = (idx - 1) % length_of_array
     }
+
     const next_year = () => idx = (idx + 1) % length_of_array
 </script>
 
@@ -81,31 +81,24 @@
             class:text-gray-800={month.is_active} 
             class:font-bold={month.is_active} 
             on:click={() => month.is_active = !month.is_active}
-            on:click={() => is_calendar_empty = !is_calendar_empty}
             class="block text-left text-gray-500">
             {month.month} ({get_nb_events_per_month(year, month.nb, idx)})
             </button>
             {/each}
         </div>
     </aside>
-    <!-- {#if is_calendar_empty}
     <section class="w-3/4">
-        {#each all_months as month}
-        {#if month.nb === actual_month}
-        <p class="text-3xl sm:text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin sm:text-5xl">{Object.keys(year)[idx]}</span></p>
-        <EventCalendar events={get_events_per_month(Object.values(year)[idx], month.nb)}/>
+        {#if is_calendar_empty.length < 1}
+            <p class="mx-auto text-gray-700 text-lg font-medium max-w-lg text-center">Pour connaître tous les événements disponibles au Village Aux Dames par mois, sélectionnez un mois en particulier.</p>
+            <img class="w-auto h-auto mx-auto" src={calendar_illu} alt="">
+        {:else}
+            {#each all_months as month (month.nb)}
+            {#if month.is_active}
+            <p class="text-3xl sm:text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin sm:text-5xl">{Object.keys(year)[idx]}</span></p>
+            <EventCalendar events={get_events_per_month(Object.values(year)[idx], month.nb)}/>
+            {/if}
+            {/each}
         {/if}
-        {/each}
     </section>
-    {:else} -->
-    <section class="w-3/4">
-        {#each all_months as month}
-        {#if month.is_active}
-        <p class="text-3xl sm:text-7xl text-gray-dark font-light pb-8">{month.month} <span class="font-thin sm:text-5xl">{Object.keys(year)[idx]}</span></p>
-        <EventCalendar events={get_events_per_month(Object.values(year)[idx], month.nb)}/>
-        {/if}
-        {/each}
-    </section>
-    <!-- {/if} -->
     {/each}
 </div>
