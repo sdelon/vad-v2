@@ -65,7 +65,7 @@
 <div class="container pt-8">
     <h2 class="text-gray-dark uppercase text-4xl font-black tracking-tight pb-4 text-center">Calendrier</h2>
     <div class="w-32 h-2 bg-gray-dark mx-auto mb-8"></div>
-    <p class="max-w-lg mx-auto text-gray-700 text-center">Nous avons actuellement <span class="font-bold text-bleu-dark">{nb_of_events} événements</span> organisés et qui n'attendent que vous !</p>
+    <p class="max-w-lg mx-auto text-gray-700 text-center">Nous avons actuellement <span class="font-bold text-bleu-dark">{nb_of_events} événements</span> qui n'attendent que vous !</p>
 </div>
 <div class="container pb-20 flex space-x-3 md:space-x-10">
     {#each sorted_events as year}
@@ -89,7 +89,7 @@
     </aside>
     <section class="w-3/4">
         {#if is_calendar_empty.length < 1}
-            <p class="mx-auto text-gray-700 text-lg font-medium max-w-lg text-center">Pour connaître tous les événements disponibles au Village Aux Dames par mois, sélectionnez un mois en particulier.</p>
+            <p class="mx-auto text-gray-700 text-lg font-medium max-w-lg text-center">Pour connaître tous les événements organisés au Village Aux Dames par mois, sélectionnez un mois en particulier.</p>
             <img class="w-auto h-auto mx-auto" src={calendar_illu} alt="">
         {:else}
             {#each all_months as month (month.nb)}
