@@ -12,12 +12,10 @@
 	import OpenCalendar from '$lib/UI/OpenCalendar.svelte'
 
     export let page, events, titrePage, titreSection1, titreTagHeader
-	let currentEvents = 1, isOpen = false
+	let currentEvents = 1
 </script>
 
-<OpenCalendar
-titre_page={titrePage === 'agenda' ? "L'agenda" : "Les ateliers"} 
-on:open_calendar={() => goto('/calendrier')}/>
+<OpenCalendar on:open_calendar={() => goto('/calendrier')}/>
 
 <section class="container">
 	<PageTagHeader page={titreTagHeader}/>
