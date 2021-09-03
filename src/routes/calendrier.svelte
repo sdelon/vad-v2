@@ -15,7 +15,7 @@
     import { setContext } from 'svelte'
     import Breadcrumb from '$lib/UI/Breadcrumb.svelte'
     import EventCalendar from '$lib/UI/EventCalendar.svelte'
-    import calendar_illu from '/static/images/calendar-illu.png'
+    import calendar_illu from '/images/calendar-illu.png'
 
     export let sorted_events, nb_of_events
     let idx = 0

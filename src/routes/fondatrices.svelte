@@ -71,7 +71,7 @@
         <div class="container px-4 mx-auto">
             <div class="mx-auto text-center">
                 <h2 class="mt-2 text-6xl font-black text-gray-800 pb-5">Contacter l'équipe</h2>
-                <p class="max-w-md mx-auto text-gray-800">Vous souhaitez passer des vacances dans un écovillage en devenir ? Vous êtes intéressés par la mouvance écolieux mais ne savez pas par où commencer ? Vous souhaitez rejoindre le projet du Village Aux Dames en tant que résidente bénévole ou intervenant externe ? Envoyez-nous un message pour qu'on en discute !</p>
+                <p class="max-w-md mx-auto text-gray-800">Vous souhaitez soutenir le Village aux Dames et contribuer à ce lieu d'échanges de savoir-faire ? Vous mobiliser autour d’enjeux sociétaux comme la discrimination, l'isolement social et le stress au quotidien ? Vous voulez rejoindre le projet du Village aux Dames en tant que résident·e, bénévole ou intervenant·e externe ou encore passer des vacances dans un écovillage en devenir ? Envoyez-nous un message pour qu'on en discute !</p>
             </div>
             <form id="contact" class="max-w-lg mx-auto p-6 rounded-lg space-y-8 mt-8">
                 <div class="flex flex-col space-y-2">

@@ -18,7 +18,7 @@
 	import CardEvent from '$lib/UI/CardEvent.svelte'
 	import Paragraphe from '$lib/UI/Paragraphe.svelte'
 	import Image from '$lib/UI/Image.svelte'
-	import logoVAD from '../../static/images/logo-arbre-VAD-v2.svg'
+	import logoVAD from '/images/logo-arbre-VAD-v2.svg'
 
 	export let accueil
 </script>
