@@ -32,5 +32,8 @@
         <li class="mb-4 md:mb-0">
             <a sveltekit:prefetch on:click={() => dispatch('clickMobileItem')} class="uppercase {color} hover:text-gray-dark hover:border-b-2 hover:border-bleu-primaire hover:border-solid transition-colors duration-300" href="/fondatrices" class:active={$page.path === '/fondatrices'}>Fondatrices</a>
         </li>
+        <li class="mb-4 md:mb-0">
+            <a sveltekit:prefetch on:click={() => dispatch('clickMobileItem')} class="uppercase {color} hover:text-gray-dark hover:border-b-2 hover:border-bleu-primaire hover:border-solid transition-colors duration-300" href="/calendrier" class:active={$page.path === '/calendrier'}>Calendrier</a>
+        </li>
     </ul>
 </nav>
