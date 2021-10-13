@@ -36,12 +36,8 @@
 			<h1 class="text-6xl sm:text-7xl tracking-tight font-black text-gray-dark pb-6">{PrismicDom.RichText.asText(accueil.data.titre)}</h1>
 			<h2 class="text-2xl font-medium text-gray-700 pb-10">{@html PrismicDom.RichText.asHtml(accueil.data.intro)}</h2>
 			<div class="flex-none w-80">
-				<a href="/" class="flex items-center cta">
+				<a href="/" class="btn-cta">
 					<span>{accueil.data.bouton_text}</span>
-					<svg width="13px" height="10px" viewBox="0 0 13 10">
-						<path d="M1,5 L11,5"></path>
-						<polyline points="8 1 12 5 8 9"></polyline>
-					</svg>
 				</a>
 			</div>
 		</div>

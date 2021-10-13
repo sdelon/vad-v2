@@ -11,20 +11,24 @@
     @apply bg-bleu-primaire hover:bg-bleu-light transition duration-500 text-gray-dark font-bold px-5 py-4 rounded-lg uppercase tracking-wide my-12;
 }
 
-/* CTA */
-.cta {
+/* Btn-cta */
+.btn-cta {
 	--bg-bleu: #09C7D4;
-	--height: 70px;
-	--width: 70px;
-	--border-radius: 35px;
+	--border-radius: 30px;
 	position: relative;
 	margin: auto;
-	padding: 19px 22px;
+	padding: 15px 10px;
 	transition: all .2s ease;
-	height: var(--height);
+	height: 100%;
 }
 
-.cta::before {
+.btn-cta span {
+	position: relative;
+	z-index: 10;
+	@apply text-gray-dark text-xl font-bold px-5 py-4 uppercase tracking-wide my-12;
+}
+
+.btn-cta::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -32,80 +36,12 @@
 	display: block;
 	border-radius: var(--border-radius);
 	background: var(--bg-bleu);
-	width: var(--width);
-	height: var(--height);
-	transition: all .5s ease;
-}
-
-.cta:hover {
 	width: 100%;
-    background: var(--bg-bleu);
-	border-radius: var(--border-radius);
-	transition: all .3s ease;
+	height: 100%;
+	clip-path: circle(20% at 8% 20%);
+	transition: all .8s ease;
 }
 
-.cta span {
-	position: relative;
-	font-size: 16px;
-	line-height: 18px;
-	font-weight: 900;
-	letter-spacing: .25em;
-	text-transform: uppercase;
-	vertical-align: middle;
-}
-
-.cta svg {
-	position: relative;
-	top: 0;
-	margin-left: 10px;
-	fill: none;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	stroke: #111;
-	stroke-width: 2;
-	transform: translateX(-5px);
-	transition: all .3s ease;
-}
-
-/* BTN-PLUS */
-.btn-plus {
-	--bg-yellow: #DFAF2C;
-	--height: 35px;
-	--width: 35px;
-	--border-radius: 17.5px;
-	position: relative;
-	margin: auto;
-	padding: 15px 25px 15px 12px;
-	transition: all .5s ease;
-	height: var(--height);
-}
-
-.btn-plus::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	border-radius: var(--border-radius);
-	background: var(--bg-yellow);
-	width: var(--width);
-	height: var(--height);
-	transition: all .5s ease;
-}
-
-.btn-plus:hover {
-	width: 100%;
-    background: var(--bg-yellow);
-	border-radius: var(--border-radius);
-	transition: all .5s ease;
-}
-
-.btn-plus span {
-	position: relative;
-	font-size: 15px;
-	line-height: 18px;
-	font-weight: 800;
-	letter-spacing: .15em;
-	text-transform: uppercase;
-	vertical-align: middle;
+.btn-cta:hover::before {
+	clip-path: circle(75%);
 }

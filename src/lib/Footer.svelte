@@ -51,13 +51,11 @@
                 <h2 class="text-gray-dark font-bold">Contactez le Village aux Dames</h2>
                 <p class="font-light text-gray-600 py-3">Vous avez une question ou une idée à nous soumettre, vous souhaitez plus d'informations ou prendre part au projet ? N'hésitez pas à nous contacter pour partager tout cela avec nous.</p>
             </div>
-            <button class="cta flex items-center">
-                <span>Nous contacter</span>
-                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>
+            <div class="mt-8 mb-3 self-end cursor-pointer">
+                <a sveltekit:prefetch href="/fondatrices#contact" class="btn-plus">
+                    <span>Nous contacter</span>
+                </a>
+            </div>
         </div>
     </section>
     <div class="lg:max-w-screen-lg mx-auto md:flex justify-between items-center py-8 px-5 lg:px-0">
