@@ -27,8 +27,8 @@
 </section>
 {#each page.data.body as slice, i}
 {#if slice.slice_type === 'list_of_articles'}
-<h2 class="container uppercase text-gray-dark text-4xl font-black tracking-tight pb-4 md:text-center">{PrismicDOM.RichText.asText(slice.primary.titre_section)}</h2>
-<div class="w-32 h-2 bg-gray-dark mx-auto mb-8"></div>
+<h2 class="container text-gray-dark text-4xl font-black pb-4 md:text-center">{PrismicDOM.RichText.asText(slice.primary.titre_section)}</h2>
+<div class="w-32 h-1 bg-gray-dark mx-auto mb-8"></div>
 <section class="w-full bg-gray-200 px-5 lg:px-0">
 	<div class="lg:max-w-screen-lg mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {#each slice.items as slice}
@@ -39,8 +39,8 @@
 {/if}
 {/each}
 <section class="container pb-12 pt-12">
-	<h2 class="container uppercase text-gray-dark text-4xl font-black tracking-tight pb-4 md:text-center">{titreSection1}</h2>
-	<div class="w-32 h-2 bg-gray-dark mx-auto mb-8"></div>
+	<h2 class="container text-gray-dark text-4xl font-black pb-4 md:text-center">{titreSection1}</h2>
+	<div class="w-32 h-1 bg-gray-dark mx-auto mb-8"></div>
 	<FilteringTags on:filterByTag on:reset />
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12">
 	{#each events as event}
@@ -62,19 +62,17 @@
 		width={slice.primary.image.dimensions.width}
 		height={slice.primary.image.dimensions.height}
 		styles="w-full h-60 rounded-lg object-cover" />
-	<HeaderSection 
-		titre={slice.primary.titre}
-		text={slice.primary.texte} 
-		styles="text-gray-dark pt-8"
-		borderBgColor="bg-gray-dark" />
+	<h2 class="text-4xl font-black text-dark-gray pt-8 pb-4 md:text-center">{PrismicDOM.RichText.asText(slice.primary.titre)}</h2>
+	<div class="md:text-center md:mx-auto text-gray-600 pb-5 md:pb-8 md:w-2/3">{@html PrismicDOM.RichText.asHtml(slice.primary.texte)}</div>
+	<div class="w-32 h-1 bg-gray-dark mx-auto mb-8"></div>
 	<a href="/" class="inline-block cta-btn">{slice.primary.bouton_texte}</a>
 </section>
 {:else if slice.slice_type === 'organisation_de_visites'}
 <section class="container pb-20 text-gray-dark">
 	<div class="flex flex-col md:flex-row justify-between">
 		<div class="flex flex-col justify-center">
-			<h2 class="uppercase text-gray-dark text-4xl font-black tracking-tight pb-4">{PrismicDOM.RichText.asText(slice.primary.titre)}</h2>
-			<div class="w-32 h-2 bg-gray-dark mb-8"></div>
+			<h2 class="text-gray-dark text-4xl font-black pb-4">{PrismicDOM.RichText.asText(slice.primary.titre)}</h2>
+			<div class="w-32 h-1 bg-gray-dark mb-8"></div>
 			<div class="text-gray-600 pb-5 md:pb-8 md:w-2/3">{@html PrismicDOM.RichText.asHtml(slice.primary.intro)}</div>
 			<a href="/" class="bg-bleu-primaire hover:bg-bleu-light px-6 py-3 rounded-lg text-gray-dark uppercase text-lg font-bold tracking-wide self-start">{slice.primary.bouton_texte}</a>
 		</div>
