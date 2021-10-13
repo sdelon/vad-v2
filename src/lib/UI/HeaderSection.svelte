@@ -4,7 +4,7 @@
 </script>
 
 {#if h1}
-<h1 class="{styles} text-6xl md:text-7xl font-bold pb-4 md:text-center">{PrismicDom.RichText.asText(titre)}</h1>
+<h1 class="{styles} text-5xl md:text-6xl font-bold pb-4 md:text-center">{PrismicDom.RichText.asText(titre)}</h1>
 {:else}
 <h2 class="{styles} uppercase text-4xl font-black tracking-tight pb-4 md:text-center">{PrismicDom.RichText.asText(titre)}</h2>
 <div class="w-32 h-2 {borderBgColor} mx-auto mb-8"></div>
